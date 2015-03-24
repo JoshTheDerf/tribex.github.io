@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  
+  <link rel="stylesheet" href="dist/styles.css"/>
+  <script src="vendor/jquery.min.js"></script>
+  <script src="index.js"></script>
+</head>
+<body>
+  <div id="loadingIndicator"><i class="fa fa-cog fa-spin"></i> Initializing Awesomeness...</div>
+  <div id="main">
+    <nav class="mainNav">
+      <img src="assets/images/tribex-logo.png" class="logo"/>
+      <p class="name">Tribex</p>
+      <div class="navbox">
+        <ul>
+          <li><a href="#" class="active">Home</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Résumé</a></li>
+          <li><a href="#">Projects</a></li>
+          <li>
+            <a href="#">About <i class="fa fa-caret-down"></i></a>
+            <ul>
+              <li><a href="#">Me</a></li>
+              <li><a href="#">This Site</a></li>
+            </ul>
+          </li>
+          <li><a href="https://github.com/Tribex">GitHub <i class="fa fa-github"></i></a></li>
+        </ul>
+      </div>
+    </nav>
+    
+    <div class="mainContent">
+      <header class="contentHeader">
+        <section class="infobox">
+          <h2>Tribex's Corner</h2>
+          <p>Entirely Incomplete.</p>
+          <p><a href="https://github.com/Tribex" class="button">Tribex @ GitHub <i class="fa fa-github"></i></a></p>
+        </section>
+        <section class="slides">
+          <div class="slide">
+            <a class="slide">
+              <img src="assets/projects/WordSearcher.png"></img>
+              <p class="text">WordSearcher - Desktop and Android Bible Reading and Journaling.</p>
+            </a>
+          </div>
+          <div class="slide">
+            <a class="slide">
+              <img src="assets/projects/wsolver.png"></img>
+              <p class="text">WSolver - A Word Search Solving Library.</p>
+            </a>
+          </div>
+          <div class="slide">
+            <a class="slide" href="http://wanadev.github.io/PhotonUI">
+              <img src="assets/projects/PhotonUI.png"></img>
+              <p class="text">PhotonUI by Wanadev - MVC-based JavaScript GUIs.</p>
+            </a>
+          </div>
+        </section>
+      </header>
+      <article class="articleBox">
+        <h2>TODO:</h2>
+        <ul>
+          <li>Flesh <a href="#">out</a> Content Area Layout.</li>
+          <li>Convert to Handlebars Template for use in Assemble.</li>
+          <li>Maybe add content? Pfft, nah.</li>
+          <li>Make links functional.</li>
+          <li>Clean up.</li>
+          <li>Find a less rustic set of colors that aren't incredibly ugly and aren't white and blue.</li>
+        </ul>
+        <h2>NOTES:</h2>
+        <ul>
+          <li>Everything except the header section scales decently for smaller devices.</li>
+          <li>Page is entirely functional without JavaScript enabled.</li>
+          <li>See that fancy nav bar? CSS transitions are awesome.</li>
+        </ul>
+      </article>
+      <footer>
+        <p>Copyright &copy; Joshua Bemenderfer (Tribex) 2015</p>
+        <p>Fonts: <a href="https://www.theleagueofmoveabletype.com/">The League of Moveable Type</a></p>
+        <p>Technologies: <a href="https://nodejs.org/">Node.js</a> |
+          <a href="https://npmjs.com">npm</a> |
+          <a href="http://lesscss.org/">Less</a> |
+          <a href="http://assemble.io">Assemble</a>
+        </p>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>

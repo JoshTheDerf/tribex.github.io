@@ -1,0 +1,367 @@
+/* Import League Fonts */
+@import "../vendor/fonts/fontawesome/stylesheet.css";
+@import "../vendor/fonts/league-gothic/stylesheet.css";
+@import "../vendor/fonts/league-junction/stylesheet.css";
+@import "../vendor/fonts/league-raleway/stylesheet.css";
+@import "../vendor/fonts/league-spartan/stylesheet.css";
+@import "variables.less";
+
+body {
+  padding: 0px;
+  margin: 0px;
+  background-color: @color-bg;
+  font-family: "League Gothic" sans-serif;
+  color: @color-text;
+}
+
+#loadingIndicator {
+  display: none;
+  font-family: sans-serif;
+  text-shadow: 1px 1px 0px @color-light;
+  font-size: 40px;
+  text-align: center;
+  padding: 30px;
+}
+
+#main {
+  transition: opacity @transition-delay * 2;
+
+  &.loaded {
+    opacity: 1;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.mainNav {
+  width: 100%;
+  height: 70px;
+  position: fixed;
+  z-index: 1;
+  background-color: @color-dark;
+  box-shadow: 0 0px @shadow-radius 0px @color-dark;
+  transition: all @transition-delay @transition-delay;
+  
+  font-size: 35px;
+  color: @color-bg;
+  
+  user-select: none;
+  cursor: default;
+  
+  /* CSS trick to force GPU acceleration for certain elements. */
+  transform: translate3d(0, 0, 0);
+  
+  .logo {
+    display: inline-block;
+    width: 52px;
+    height: 52px;
+    margin: 8px;
+    margin-left: (@content-margin / 2) - 34px;
+    float: left;
+    pointer-events: none;
+    background-color: @color-light;
+    border-radius: 100%;
+    transition: all @transition-delay @transition-delay;
+  }
+  
+  .name {
+    display: inline-block;
+    float: left;
+    margin: 15px;
+    margin-left: (@content-margin / 2) - 29px;
+    letter-spacing: 5px;
+    opacity: 1;
+    transition: opacity @transition-delay;
+  }
+  
+  .navbox {
+    display: inline-block;
+    float: right;
+    margin: 10px;
+    margin-right: @content-margin;
+    opacity: 1;
+    transition: opacity @transition-delay;
+    
+    ul {
+      text-align: left;
+      display: inline-block;
+      margin: 0px;
+      padding: 0px;
+      list-style: none;
+      
+      li {
+        transition: all @transition-delay;
+        font-family: "League Gothic" sans-serif;
+        font-size: 25px;
+        text-decoration: none;
+        color: @color-bg;
+        padding-top: 13px;
+        padding-bottom: 13px;
+        border-bottom: 0px solid;
+        display: inline-block;
+        position: relative;
+        
+        &:hover {
+          color: @color-light;
+          border-width: 3px;
+          border-color: @color-light;
+          
+          ul {
+            transition: opacity @transition-delay;
+            opacity: 1;
+            visibility: visible;
+            transition-delay: 0s;
+          }
+        }
+        
+        &:active, &.active {
+          color: @color-superlight;
+          border-width: 3px;
+          border-color: @color-superlight;
+          
+          ul {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+          }
+        }
+        
+        a {
+          color: inherit;
+          text-decoration: none;
+          padding: 5px;
+          padding-top: 13px;
+          padding-bottom: 13px;
+        }
+        
+        ul {
+          padding: 0;
+          position: absolute;
+          top: 59px;
+          left: 0;
+          width: 150px;
+          box-shadow: 0 1px @shadow-radius 0px @color-dark;
+          opacity: 0;
+          visibility: hidden;
+          transition: visibility 0s linear @transition-delay, opacity @transition-delay linear;
+          
+          li {
+            display: block;
+            background-color: @color-dark;
+            border-left: 3px solid rgba(0,0,0,0);
+            border-bottom: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+.mainNavCondensed {
+  width: 68px;
+  border-radius: 0 0 50% 0;
+  .logo {
+    margin-left: 8px;
+  }
+  
+  .name, .navbox {
+    opacity: 0;
+  }
+}
+
+.contentHeader {
+  width: 100%;
+  height: 250px;
+  box-shadow: 0 0px @shadow-radius 0px @color-text;
+  overflow: hidden;
+  padding-left: @content-margin;
+  padding-right: @content-margin;
+
+  background-color: @color-superlight;
+  font-size: 20px;
+  
+  user-select: none;
+  cursor: default;
+  
+  .infobox {
+    padding-top: 70px;
+    width: auto;
+    float: left;
+    h2 {
+      font-family: "League Spartan" sans-serif;
+      font-size: 40px;
+      color: @color-text;
+      text-shadow: 2px 2px 1px @color-bg;
+      margin: 5px;
+    }
+    
+    p {
+      font-family: "League Raleway" sans-serif;
+      margin: 5px;
+      margin-bottom: 10px;
+      font-weight: bold;
+      color: @color-content-dark;
+    }
+  }
+  
+  .slides {
+    float: right;
+    height: 252px;
+    white-space: nowrap;
+    box-shadow: 0 0px @shadow-radius*2 0px #000;
+    overflow: hidden;
+        
+    .slide {
+      width: 400px;
+      height: 252px;
+      float: left;
+      overflow: hidden;
+      margin-right: -330px;
+      padding: 0px;
+      box-shadow: 0 0px @shadow-radius*2 0px #000;
+      border-radius: 0px;
+      transition: all @transition-delay;
+      
+      &:hover, &:active {
+        margin-right: -@shadow-radius*2;
+
+        .text {
+          width: 400px-@shadow-radius*2+2;
+          opacity: 1;
+        }
+      }
+      
+      img {
+        width: 100%;
+        height: 100%;
+      }
+      
+      .text {
+        font-family: "League Gothic" sans-serif;
+        position: relative;
+        width: 0px;
+        height: 45px;
+        opacity: 0;
+        padding: 10px;
+        margin-top: -50px;
+        color: @color-light;
+        background-color: rgba(0,0,0, 0.7);
+        transition: all @transition-delay;
+        font-weight: normal;
+        border-bottom: 1px solid rgba(0,0,0, 0.3);
+            
+        &:hover, &:active {
+          border-bottom: 3px solid @color-light;
+        }
+      }
+    }
+  }
+}
+
+.mainContent {
+  padding-top: 70px;
+  
+  h2 {
+    font-family: "League Spartan" sans-serif;
+    font-size: 25px;
+    color: @color-text;
+    text-shadow: 1px 1px 1px @color-superlight;
+    margin-bottom: -10px;
+  }
+  
+  p, li, span {
+    font-family: "League Junction" sans-serif;
+    font-weight: normal;
+  }
+  
+  a {
+    padding-left: 3px;
+    padding-right: 3px;
+    padding-top: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    margin: -2px;
+    color: lighten(@color-text, 20);
+    transition: all @transition-delay;
+    border-radius: 2px;
+    
+    &:hover {
+      color: @color-light;
+      background-color: lighten(@color-text, 20);
+    }
+    
+    &:active {
+      color: @color-superlight;
+      background-color: @color-text;
+    }
+  }
+  
+  .button {
+    font-family: "League Gothic" sans-serif;
+    font-weight: normal;
+    font-size: 25px;
+    padding: 5px;
+    margin: 2px;
+    background-color: @color-text;
+    color: @color-bg;
+    border-radius: 3px;
+    text-decoration: none;
+    box-shadow: inset 0 0px @shadow-radius 0px @color-text;
+    transition: all @transition-delay;
+    
+    user-select: none;
+    
+    &:hover {
+      box-shadow: inset 0 0px @shadow-radius 0px @color-light;
+      color: @color-light;
+    }
+    
+    &:active {
+      box-shadow: inset 0 0px @shadow-radius 0px @color-superlight;
+      color: @color-superlight;
+      background-color: lighten(@color-text, 10);
+    }
+  }
+  
+  .articleBox {
+    height: 800px;
+    margin: @content-margin;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: @color-light;
+    box-shadow: inset 0 0px @shadow-radius 0px @color-text;
+    border-radius: @border-radius;
+    padding: 20px;
+    padding-top: 1px;
+    color: @color-text;
+    font-family: "League Gothic" sans-serif;
+    font-weight: bold;
+  }
+  
+  footer {
+    position: relative;
+    width: 100%;
+    padding: 10px;
+    padding-left: @content-margin;
+    padding-right: @content-margin;
+    background-color: @color-dark;
+    box-shadow: 0 0px @shadow-radius 0px @color-dark;
+    transition: all @transition-delay @transition-delay;
+    
+    font-size: 12px;
+    text-align: center;
+    
+    color: lighten(@color-dark, 25);
+    
+    p {
+      margin-top: 4px;
+      margin-bottom: 4px;
+    }
+    
+    a {
+      color: lighten(desaturate(@color-text, 50), 20);
+    }
+  }
+}
