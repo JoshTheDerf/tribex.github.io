@@ -8,8 +8,15 @@ $(window).load(function() {
   var navHideDistance = 70;
   var navMouseOver = false;
   
+  function getScrollTop() {
+    return (document.documentElement.scrollTop ||
+      document.body.parentNode.scrollTop ||
+      document.body.scrollTop);
+  }
+  
   $(document).scroll(function(e) {
-    if(document.body.scrollTop >= navHideDistance && !navMouseOver) {
+    console.log(getScrollTop());
+    if(getScrollTop() >= navHideDistance && !navMouseOver) {
       showTitle(false);
     } else {
       showTitle(true);
@@ -18,12 +25,12 @@ $(window).load(function() {
   
   $(".mainNav").on('mouseenter click', function() {
     navMouseOver = true;
-    if(document.body.scrollTop >= navHideDistance) {
+    if(getScrollTop() >= navHideDistance) {
       showTitle(true);
     }
   }).on('mouseleave', function(e) {
     navMouseOver = false;
-    if(document.body.scrollTop >= navHideDistance) {
+    if(getScrollTop() >= navHideDistance) {
       showTitle(false);
     }
   })
