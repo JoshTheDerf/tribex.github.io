@@ -11,7 +11,8 @@ module.exports = function(grunt) {
           ],
         },
         files: {
-          "dist/styles.css": "styles.less"
+          "dist/styles.css": "styles.less",
+          "dist/index.css": "index.less"
         }
       }
     }

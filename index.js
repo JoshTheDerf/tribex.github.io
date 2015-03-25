@@ -3,6 +3,7 @@ $(document.head).append("<style>#main{opacity:0;}#loadingIndicator{display:block
 
 // Fade the page in when everything has loaded. This prevents FOUC, especially noticable with custom fonts.
 $(window).load(function() {
+  createFeed();
   $("#loadingIndicator").remove();
   $("#main").addClass("loaded");
   var navHideDistance = 70;
@@ -15,7 +16,6 @@ $(window).load(function() {
   }
   
   $(document).scroll(function(e) {
-    console.log(getScrollTop());
     if(getScrollTop() >= navHideDistance && !navMouseOver) {
       showTitle(false);
     } else {

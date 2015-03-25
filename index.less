@@ -1,0 +1,59 @@
+@import 'variables.less';
+
+#ghEventsBox {
+  padding: 10px;
+  @width: 100%;
+  @height: 500px;
+
+  #ghEventsLoader {
+    width: 100%;
+    text-align: center;
+  }
+  
+  h2 {
+    padding: 0px;
+    margin: 0px;
+  }
+  
+  .outer {
+    overflow: hidden;
+    width: @width;
+    height: @height;
+    position: relative;
+  }
+  
+  .inner {
+    overflow: scroll;
+    position: absolute;
+  }
+  
+  .inner::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .content {
+    width: @width;
+    height: @height;
+  }
+}
+
+#infoBox {
+  position: relative;
+  .border {
+    position: absolute;
+    top: 100px;
+    bottom: 100px;
+    left: 0;
+    border-left: 1px solid @color-light;
+    
+    &:before {
+      content: " ";
+      position: absolute;
+      top: 0px;
+      bottom: 0px;
+      border-left: 1px solid @color-text;
+    }
+  }
+  height: 500px;
+  padding: 10px;
+}

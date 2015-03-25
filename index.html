@@ -4,8 +4,12 @@
   <meta charset="utf-8"/>
   
   <link rel="stylesheet" href="dist/styles.css"/>
+  <link rel="stylesheet" href="dist/index.css"/>
   <script src="vendor/jquery.min.js"></script>
+  <script src="vendor/moment.min.js"></script>
+  <script src="vendor/github-activity-feed.js"></script>
   <script src="index.js"></script>
+  <script src="activity-feed.js"></script>
 </head>
 <body>
   <div id="loadingIndicator"><i class="fa fa-cog fa-spin"></i> Initializing Awesomeness...</div>
@@ -33,7 +37,7 @@
     
     <div class="mainContent">
       <header class="contentHeader">
-        <section class="infobox">
+        <section class="headerBox">
           <h2>Tribex's Corner</h2>
           <p>Entirely Incomplete.</p>
           <p><a href="https://github.com/Tribex" class="button">Tribex @ GitHub <i class="fa fa-github"></i></a></p>
@@ -59,23 +63,35 @@
           </div>
         </section>
       </header>
-      <article class="articleBox">
-        <h2>TODO:</h2>
-        <ul>
-          <li>Flesh <a href="#">out</a> Content Area Layout.</li>
-          <li>Convert to Handlebars Template for use in Assemble.</li>
-          <li>Maybe add content? Pfft, nah.</li>
-          <li>Make links functional.</li>
-          <li>Clean up.</li>
-          <li>Find a less rustic set of colors that aren't incredibly ugly and aren't white and blue.</li>
-        </ul>
-        <h2>NOTES:</h2>
-        <ul>
-          <li>Everything except the header section scales decently for smaller devices.</li>
-          <li>Page is entirely functional without JavaScript enabled.</li>
-          <li>See that fancy nav bar? CSS transitions are awesome.</li>
-        </ul>
+      <div class="mainContainer">
+      <article id="infoBox" class="section w25 left">
+        <div class="border"></div>
+        <section class="section w100">
+          <h2>About:</h2>
+          <p>This is the in-development website theme/template for Tribex. More to come soon!</p>
+        </section>
+        <section class="section w100">
+          <h2>TODO:</h2>
+          <ul>
+            <li>Style GitHub Event Log</li>
+            <li>Convert to Handlebars Template for use in Assemble.</li>
+            <li>Maybe add content? Pfft, nah.</li>
+            <li>Make links functional.</li>
+            <li>Clean up.</li>
+            <li>Find a less rustic set of colors that aren't incredibly ugly and aren't white and blue.</li>
+          </ul>
+        </section>
       </article>
+      <article id="ghEventsBox" class="section articleBox w75 left scrollable">
+        <h2 id="ghEventsLoader"><i class="fa fa-cog fa-spin"></i> Loading GitHub Events...</h2>
+        <div class="outer">
+          <div class="inner">
+            <ul class="content" id="ghEvents">
+            </ul>
+          </div>
+        </div>
+      </article>
+    </div>
       <footer>
         <p>Copyright &copy; Joshua Bemenderfer (Tribex) 2015</p>
         <p>Fonts: <a href="https://www.theleagueofmoveabletype.com/">The League of Moveable Type</a></p>
