@@ -1,9 +1,11 @@
 @import 'variables.less';
 
 #ghEventsBox {
-  padding: 10px;
+  font-family: League Spartan, sans-serif;
   @width: 100%;
   @height: 500px;
+  padding: 0px;
+  margin: 0px;
 
   #ghEventsLoader {
     width: 100%;
@@ -15,25 +17,72 @@
     margin: 0px;
   }
   
-  .outer {
-    overflow: hidden;
-    width: @width;
-    height: @height;
-    position: relative;
-  }
-  
-  .inner {
-    overflow: scroll;
-    position: absolute;
-  }
-  
-  .inner::-webkit-scrollbar {
-    display: none;
-  }
-  
   .content {
     width: @width;
     height: @height;
+    margin: 10px;
+    margin-top: 0px;
+    overflow: auto;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    
+    .event {
+      position: relative;
+      width: 100%;
+      background-color: @color-light;
+      padding: 10px;
+      font-size: 16px;
+      font-weight: normal;
+      border-top: 1px solid @color-superlight;
+      margin-bottom: 1px;
+      
+      a {
+        color: @color-text;
+        
+        &:hover {
+          color: @color-light;
+        }
+        
+        &:active {
+          color: @color-superlight;
+        }
+      }
+    }
+    
+    .mega-octicon, .octicon {
+      &:before {
+        color: @color-content-dark;
+      }
+    }
+    
+    .icon {
+      width: 40px;
+      text-align: center;
+      position: absolute;
+      top: 5px;
+      left: 5px;
+    }
+    
+    .textarea {
+      color: @color-dark;
+      margin-left: 40px;
+    }
+    
+    .details {
+      color: @color-content-dark;
+      max-width: 600px;
+      min-width: 100px;
+      font-size: 12px;
+      padding-top: 2px;
+      margin: 0px;
+      margin-left: 10px;
+      margin-bottom: 0px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
   }
 }
 
