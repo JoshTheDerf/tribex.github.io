@@ -83,6 +83,35 @@
       overflow: hidden;
       text-overflow: ellipsis;
     }
+    
+    @media (max-width: 600px) {
+      .details {
+        display: none;
+      }
+    }
+  }
+}
+
+#verseBox {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 0px;
+  text-align: center;
+  
+  .verse {
+    font-family: League Gothic;
+    color: @color-medium-dark;
+    font-size: 20px;
+  }
+  
+  .reference {
+    font-family: League Gothic;
+    color: @color-text;
+    font-weight: bold;
+    font-size: 20px;
+    letter-spacing: 1px;
+    display: block;
+    margin-left: 20px;
   }
 }
 

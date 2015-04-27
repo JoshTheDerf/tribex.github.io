@@ -234,16 +234,22 @@ p, li, span {
       border-radius: 0px;
       transition: all @transition-delay;
       
+      @media (max-width: 800px) {
+        display: none;
+      }
+      
       &:hover, &:active {
-        margin-right: -@shadow-radius*2;
+        @media (min-width: 900px) {
+          margin-right: -@shadow-radius*2;
 
-        .text {
-          width: 400px-@shadow-radius*2+2;
-          opacity: 1;
-        }
-        
-        img {
-          opacity: 1;
+          .text {
+            width: 400px-@shadow-radius*2+2;
+            opacity: 1;
+          }
+          
+          img {
+            opacity: 1;
+          }
         }
       }
       
@@ -349,6 +355,7 @@ p, li, span {
     border-radius: @border-radius;
     padding: 20px;
     padding-top: 1px;
+    margin-bottom: 5px;
     color: @color-text;
     font-family: League Spartan, sans-serif;
     font-weight: bold;

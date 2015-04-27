@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
-  
+  <title>Tribex's Corner - Christian, MK, and Programmer</title>
   <link rel="stylesheet" href="dist/styles.css"/>
   <link rel="stylesheet" href="dist/index.css"/>
   <script src="vendor/jquery.min.js"></script>
@@ -12,7 +12,7 @@
   <script src="activity-feed.js"></script>
 </head>
 <body>
-  <div id="loadingIndicator"><i class="fa fa-cog fa-spin"></i> Initializing Awesomeness...</div>
+  <div id="loadingIndicator"><i class="fa fa-cog fa-spin"></i> Loading Assets, Please Wait...</div>
   <div id="main">
     <nav class="mainNav">
       <img src="assets/images/tribex-logo.png" class="logo"/>
@@ -23,13 +23,7 @@
           <li><a href="#">Blog</a></li>
           <li><a href="#">Résumé</a></li>
           <li><a href="#">Projects</a></li>
-          <li>
-            <a href="#">About <i class="fa fa-caret-down"></i></a>
-            <ul>
-              <li><a href="#">Me</a></li>
-              <li><a href="#">This Site</a></li>
-            </ul>
-          </li>
+          <li><a href="#">About</a></li>
           <li><a href="https://github.com/Tribex">GitHub <i class="fa fa-github"></i></a></li>
         </ul>
       </div>
@@ -38,9 +32,8 @@
     <div class="mainContent">
       <header class="contentHeader">
         <section class="headerBox">
-          <h2>Tribex's Corner</h2>
-          <p>Entirely Incomplete.</p>
-          <p><a href="https://github.com/Tribex" class="button">Tribex @ GitHub <i class="fa fa-github"></i></a></p>
+          <h2>Header</h2>
+          <p>Subtext</p>
         </section>
         <section class="slides">
           <div class="slide">
@@ -61,10 +54,23 @@
               <p class="text">PhotonUI by Wanadev - MVC-based JavaScript GUIs.</p>
             </a>
           </div>
+          <div class="slide">
+            <a class="slide" href="https://github.com/Tribex/iBrows">
+              <img src="assets/projects/iBrows.png"></img>
+              <p class="text">iBrows - A semi-sarcastic web browser based on web technologies.</p>
+            </a>
+          </div>
         </section>
       </header>
       <div class="mainContainer">
-      <article id="infoBox" class="section w25 left articleBox">
+      <article id="verseBox" class="section w100 left articleBox">
+        <p class="verse">"I am crucified with Christ: nevertheless I live; yet not I,
+          but Christ liveth in me:
+          and the life which I now live in the flesh I live by the faith of the Son of God,
+          who loved me, and gave himself for me."
+          <span class="reference">Galatians 2:20 (KJV)</span></p>
+      </article>
+      <article id="infoBox" class="section w50 left articleBox">
         <section class="section w100">
           <h2>About:</h2>
           <p>This is the in-development website theme/template for Tribex. More to come soon!</p>
@@ -72,7 +78,6 @@
         <section class="section w100">
           <h2>TODO:</h2>
           <ul>
-            <li>Style GitHub Event Log</li>
             <li>Convert to Handlebars Template for use in Assemble.</li>
             <li>Maybe add content? Pfft, nah.</li>
             <li>Make links functional.</li>
@@ -81,7 +86,7 @@
           </ul>
         </section>
       </article>
-      <article id="ghEventsBox" class="section w75 left scrollable">
+      <article id="ghEventsBox" class="section w50 left scrollable">
         <h2 id="ghEventsLoader"><i class="fa fa-cog fa-spin"></i> Loading GitHub Events...</h2>
         <div class="content" id="ghEvents">
         </div>
