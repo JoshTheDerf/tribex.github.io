@@ -63,45 +63,58 @@
         </section>
       </header>
       <div class="mainContainer">
-      <article id="verseBox" class="section w100 left articleBox">
-        <p class="verse">"I am crucified with Christ: nevertheless I live; yet not I,
-          but Christ liveth in me:
-          and the life which I now live in the flesh I live by the faith of the Son of God,
-          who loved me, and gave himself for me."
-          <span class="reference">Galatians 2:20 (KJV)</span></p>
-      </article>
-      <article id="infoBox" class="section w50 left articleBox">
-        <section class="section w100">
-          <h2>About:</h2>
-          <p>This is the in-development website theme/template for Tribex. More to come soon!</p>
-        </section>
-        <section class="section w100">
-          <h2>TODO:</h2>
-          <ul>
-            <li>Convert to Handlebars Template for use in Assemble.</li>
-            <li>Maybe add content? Pfft, nah.</li>
-            <li>Make links functional.</li>
-            <li>Clean up.</li>
-            <li>Find a less rustic set of colors that aren't incredibly ugly and aren't white and blue.</li>
-          </ul>
-        </section>
-      </article>
-      <article id="ghEventsBox" class="section w50 left scrollable">
-        <h2 id="ghEventsLoader"><i class="fa fa-cog fa-spin"></i> Loading GitHub Events...</h2>
-        <div class="content" id="ghEvents">
+        <article id="verseBox" class="section w100 left articleBox">
+          <p class="verse">"I am crucified with Christ: nevertheless I live; yet not I,
+            but Christ liveth in me:
+            and the life which I now live in the flesh I live by the faith of the Son of God,
+            who loved me, and gave himself for me."
+            <span class="reference">Galatians 2:20 (KJV)</span></p>
+          </article>
+          <article id="infoBox" class="section w50 left articleBox">
+            <section class="section w100">
+              <h2>About:</h2>
+              <p>This is the in-development website theme/template for Tribex. More to come soon!</p>
+            </section>
+            <section class="section w100">
+              <h2>TODO:</h2>
+              <ul>
+                <li>Convert to Handlebars Template for use in Assemble.</li>
+                <li>Maybe add content? Pfft, nah.</li>
+                <li>Make links functional.</li>
+                <li>Clean up.</li>
+                <li>Find a less rustic set of colors that aren't incredibly ugly and aren't white and blue.</li>
+              </ul>
+            </section>
+          </article>
+          <article id="ghEventsBox" class="section w50 left scrollable">
+            <h2 id="ghEventsLoader"><i class="fa fa-cog fa-spin"></i> Loading GitHub Events...</h2>
+            <div class="content" id="ghEvents">
+            </div>
+          </article>
         </div>
-      </article>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES * * */
+        var disqus_shortname = 'tribexgithubio';
+        
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+        <footer>
+          <p>Copyright &copy; Joshua Bemenderfer (Tribex) 2015</p>
+          <p>Fonts: <a href="https://www.theleagueofmoveabletype.com/">The League of Moveable Type</a></p>
+          <p>Technologies: <a href="https://nodejs.org/">Node.js</a> |
+            <a href="https://npmjs.com">npm</a> |
+            <a href="http://lesscss.org/">Less</a> |
+            <a href="http://assemble.io">Assemble</a>
+          </p>
+        </footer>
+      </div>
     </div>
-      <footer>
-        <p>Copyright &copy; Joshua Bemenderfer (Tribex) 2015</p>
-        <p>Fonts: <a href="https://www.theleagueofmoveabletype.com/">The League of Moveable Type</a></p>
-        <p>Technologies: <a href="https://nodejs.org/">Node.js</a> |
-          <a href="https://npmjs.com">npm</a> |
-          <a href="http://lesscss.org/">Less</a> |
-          <a href="http://assemble.io">Assemble</a>
-        </p>
-      </footer>
-    </div>
-  </div>
-</body>
-</html>
+  </body>
+  </html>
