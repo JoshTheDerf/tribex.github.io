@@ -1,0 +1,27 @@
+
+footer {
+  position: relative;
+  z-index: 1;
+  padding: 15px $horizontal-margin;
+  width: 100%;
+  
+  background-color: #444;
+  box-shadow: 0px 0px 8px #000;
+  
+  text-align: center;
+  
+  p {
+    font-size: 0.8em;
+    margin: 0px;
+    
+    color: #888;
+    text-shadow: 0px -1px 0px #111;
+    a {
+      color: #DBB;
+      
+      &:hover {
+        color: #A77;
+      }
+    }
+  }
+}

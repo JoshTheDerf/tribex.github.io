@@ -1,0 +1,15 @@
+{
+  "name": "tribex-website",
+  "description": "The personal website for Tribex.",
+  "author": "Tribex",
+  "version": "0.1.0",
+  "repository": "https://github.com/Tribex/tribex.github.io.git",
+  "devDependencies": {
+    "assemble": "^0.4.42",
+    "grunt": "^0.4.5",
+    "grunt-contrib-less": "^1.0.0",
+    "grunt-newer": "^1.1.0",
+    "less-plugin-autoprefix": "^1.4.0",
+    "less-plugin-clean-css": "^1.5.0"
+  }
+}

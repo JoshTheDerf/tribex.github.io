@@ -1,0 +1,25 @@
+// Define custom variables.
+// Transitions
+$transition-duration: 200ms;
+
+// Margins
+$horizontal-margin: 40px;
+
+// Import Foundation Variables
+@import "foundation/settings";
+
+// Import components
+@import "./components/*";
+
+// Additional styles.
+
+@media #{$medium-up} {
+  #main-content {
+    margin: 0px $horizontal-margin;
+    padding: 0px;
+  }
+}
+
+a {
+  transition: all $transition-duration;
+}

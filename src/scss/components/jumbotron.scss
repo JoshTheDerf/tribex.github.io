@@ -1,0 +1,46 @@
+
+.jumbotron {
+  // Positioning and z-index are to make the ::before element fit properly.
+  position: relative;
+  z-index: 1;
+  
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 400px;
+  
+  margin: 0px;
+  padding: $horizontal-margin;
+  padding-top: $horizontal-margin*2;
+  
+  // Yay, jumping through hoops. (Trying to align the jumbotron properly)
+  // TODO: Make more elegant.
+  @media #{$medium-up} {
+    padding-top: $horizontal-margin*4;
+  }
+  
+  background-image: url(http://placekitten.com/1600/600);
+  background-attachment: fixed;
+  overflow: hidden;
+  
+  // Adds an "effect" to the background image.
+  &::before {
+    // Lowers the ::before element into the jumbotron properly.
+    position: absolute;
+    z-index: -1;
+    
+    content: "";
+    display: block;
+    width: 100%;
+    height: 400px;
+    margin: -$horizontal-margin;
+    
+    // Yay, jumping through hoops. (Trying to align the jumbotron properly)
+    // TODO: Make more elegant.
+    @media #{$medium-up} {
+      margin-top: -$horizontal-margin*4;
+    }
+    
+    // Actual background effect. (Lighten)
+    background-color: rgba(255,255,255,0.7);
+  }
+}

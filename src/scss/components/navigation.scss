@@ -1,0 +1,170 @@
+// The MIT License (MIT)
+//
+// Copyright (c) 2015 Joshua Bemenderfer
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
+
+// @file - Contains the styling for the navigation component of the site.
+
+$nav-height: 42px;
+
+.main-nav {
+  width: 100%;
+  background-color: #FFF;
+  position: fixed;
+  z-index: 10;
+  height: $nav-height;
+  box-shadow: 0px 0px 8px #000;
+  
+  @media #{$medium-up} {
+    &.stuck {
+      position: absolute;
+      top: 0px;
+      height: $nav-height+$horizontal-margin*2;
+      margin: 0 auto;
+      padding: $horizontal-margin;
+      overflow: hidden;
+      box-shadow: none;
+    }
+    
+    .logo {
+      display: inline-block;
+    }
+
+    .name {
+      display: inline-block;
+    }
+
+    .navbox {
+      display: inline-block;
+      float: right;
+      &::before {
+        display: none;
+      }
+    }
+  }
+  
+  @media #{$small-only} {
+    .logo {
+      display: none;
+    }
+    
+    .name {
+      display: none;
+    }
+    
+    .navbox {
+      display: block;
+      text-align: center;
+      &::before {
+        display: none;
+      }
+    }
+  }
+  
+  .logo {
+    float: left;
+    width: $nav-height;
+    height: $nav-height;
+    padding: 0px;
+  }
+  
+  .name {
+    line-height: $nav-height;
+    font-weight: bold;
+    color: $primary-color;
+  }
+  
+  .navbox {
+    @media #{$xsmall-only} {
+      text-align: left;
+      background-color: #DDD;
+      height: $nav-height;
+      
+      ul {
+        opacity: 0;
+        visibility: hidden;
+        transition: visibility 0s linear $transition-duration, opacity $transition-duration linear;
+        
+        li {
+          display: block !important;
+          
+          a {
+            display: block !important;
+            width: 100%;
+          }
+        }
+      }
+      
+      &:hover, &:active {
+        background-color: #FFF;
+        ul {
+          display: block;
+          opacity: 1 !important;
+          visibility: visible !important;
+          background-color: #FFF;
+        }
+      }
+
+      &::before {
+        float: right;
+        font-size: 1.5em;
+        padding: 5px 7px;
+        margin: 5px;
+        display: block;
+        border: 1px solid #AAA;
+        border-radius: 2px;
+        margin-bottom: 0px;
+      }
+    }
+
+    ul {
+      margin: 0px;
+      padding: 0px;
+      list-style-type: none;
+      
+      transition: opacity $transition-duration;
+      
+      li {
+        display: inline-block;
+        line-height: $nav-height;
+        
+        a {
+          display: inline-block;
+          box-sizing: border-box;
+          height: $nav-height+1px;
+          padding: 0px 5px;
+          color: #888;
+          text-shadow: 0px -1px 0px #666;
+          border-bottom: 0px solid transparent;
+          
+          
+          transition: border, color, text-shadow;
+          transition-duration: $transition-duration;
+          
+          &:hover, &.active {
+            color: $primary-color;
+            text-shadow: 0px -1px 0px $primary-color;
+            border-bottom: 3px solid $primary-color;
+          }
+        }
+      }
+    }
+  }
+}
