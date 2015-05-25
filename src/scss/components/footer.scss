@@ -5,7 +5,7 @@ footer {
   padding: 15px $horizontal-margin;
   width: 100%;
   
-  background-color: #444;
+  background-color: #333;
   box-shadow: 0px 0px 8px #000;
   
   text-align: center;
@@ -17,10 +17,10 @@ footer {
     color: #888;
     text-shadow: 0px -1px 0px #111;
     a {
-      color: #DBB;
+      color: #bc9f7d;
       
       &:hover {
-        color: #A77;
+        color: #9a744b;
       }
     }
   }

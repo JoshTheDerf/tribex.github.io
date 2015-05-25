@@ -1,4 +1,4 @@
-// Define custom variables.
+// Define Custom Variables.
 // Transitions
 $transition-duration: 200ms;
 
@@ -8,11 +8,11 @@ $horizontal-margin: 40px;
 // Import Foundation Variables
 @import "foundation/settings";
 
-// Import components
+// Bulk Import Components
 @import "./components/*";
 
-// Additional styles.
 
+// Additional Styles.
 @media #{$medium-up} {
   #main-content {
     margin: 0px $horizontal-margin;
@@ -22,4 +22,25 @@ $horizontal-margin: 40px;
 
 a {
   transition: all $transition-duration;
+}
+
+// Scrollbar Styles (Webkit/Blink Browsers Only)
+::-webkit-scrollbar-track {
+  background-color: #DDD;
+}
+
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $primary-color;
+  
+  &:hover {
+    background-color: lighten($primary-color, 5);
+  }
+  
+  &:active {
+    background-color: lighten($primary-color, 10);
+  }
 }

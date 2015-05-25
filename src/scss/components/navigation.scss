@@ -22,7 +22,7 @@
 
 // @file - Contains the styling for the navigation component of the site.
 
-$nav-height: 42px;
+$nav-height: 46px;
 
 .main-nav {
   width: 100%;
@@ -42,6 +42,8 @@ $nav-height: 42px;
       overflow: hidden;
       box-shadow: none;
     }
+    
+    padding: 0px $horizontal-margin;
     
     .logo {
       display: inline-block;
