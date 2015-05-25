@@ -41,6 +41,10 @@ $nav-height: 46px;
       padding: $horizontal-margin;
       overflow: hidden;
       box-shadow: none;
+      
+      .navbox {
+        top: $horizontal-margin;
+      }
     }
     
     padding: 0px $horizontal-margin;
@@ -54,8 +58,12 @@ $nav-height: 46px;
     }
 
     .navbox {
-      display: inline-block;
-      float: right;
+      display: block;
+      // Absolute positioning to work around https://code.google.com/p/chromium/issues/detail?id=411256
+      position: absolute;
+      top: 0px;
+      right: $horizontal-margin;
+      
       &::before {
         display: none;
       }
