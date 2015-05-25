@@ -19,16 +19,7 @@
     padding-top: $horizontal-margin*4;
   }
   
-  background-image: url(http://placekitten.com/1600/1000);
-  
-  @media #{$xsmall-up} {
-    background-size: contain;
-  }
-  
-  @media #{$large-up} {
-    background-size: cover;
-  }
-  
+  background-image: url(http://placekitten.com/1600/1000);  
   background-attachment: fixed;
   overflow: hidden;
   
