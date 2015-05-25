@@ -6,7 +6,7 @@
   
   min-width: 100%;
   max-width: 100%;
-  min-height: 400px;
+  min-height: 300px;
   
   margin: 0px;
   padding: $horizontal-margin;
@@ -15,6 +15,7 @@
   // Yay, jumping through hoops. (Trying to align the jumbotron properly)
   // TODO: Make more elegant.
   @media #{$medium-up} {
+    min-height: 400px;
     padding-top: $horizontal-margin*4;
   }
   
@@ -27,16 +28,16 @@
     // Lowers the ::before element into the jumbotron properly.
     position: absolute;
     z-index: -1;
-    
     content: "";
     display: block;
+    height: 300px;
     width: 100%;
-    height: 400px;
     margin: -$horizontal-margin;
     
     // Yay, jumping through hoops. (Trying to align the jumbotron properly)
     // TODO: Make more elegant.
     @media #{$medium-up} {
+      height: 400px;
       margin-top: -$horizontal-margin*4;
     }
     
