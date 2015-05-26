@@ -16,9 +16,9 @@
    version="1.1"
    inkscape:version="0.91 r"
    sodipodi:docname="semicolon.svg"
-   inkscape:export-filename="/home/joshua/Programming/tribex.github.io/out/assets/images/semicolon-favicon.png"
-   inkscape:export-xdpi="10.285714"
-   inkscape:export-ydpi="10.285714">
+   inkscape:export-filename="/home/joshua/Programming/tribex.github.io/out/assets/images/semicolon.png"
+   inkscape:export-xdpi="41.142857"
+   inkscape:export-ydpi="41.142857">
   <defs
      id="defs4" />
   <sodipodi:namedview
@@ -28,11 +28,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.8284271"
-     inkscape:cx="43.429989"
-     inkscape:cy="69.365719"
+     inkscape:zoom="2"
+     inkscape:cx="68.155622"
+     inkscape:cy="73.474961"
      inkscape:document-units="px"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="text4138"
      showgrid="false"
      inkscape:window-width="1366"
      inkscape:window-height="736"
@@ -75,10 +75,10 @@
        transform="matrix(1.0161488,0,0,0.99684156,24.905939,0.46204074)">
       <path
          style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:TlwgMono;-inkscape-font-specification:'TlwgMono Medium'"
-         d="m 90.200091,71.612366 29.016929,0 C 86.565414,100.67665 113.21896,128.37716 81.184874,146.25585 l -6.479346,0.0319 -9.788628,-9.35353 c 10.155286,0 17.440213,-1.10926 20.949779,-13.55285 3.509566,-12.44359 4.333412,-51.768984 4.333412,-51.768994 z"
+         d="m 90.200091,71.612366 29.016929,0 C 86.565414,100.67665 113.21896,128.37716 81.184874,146.25585 l -6.479346,0.0319 c 0,0 -15.703517,-16.40195 -15.703517,-23.1858 0,-6.78385 23.355102,12.72301 26.864668,0.27942 3.509566,-12.44359 4.333412,-51.768984 4.333412,-51.769004 z"
          id="path4147"
          inkscape:connector-curvature="0"
-         sodipodi:nodetypes="ccccczcc" />
+         sodipodi:nodetypes="cccczzc" />
       <path
          style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:TlwgMono;-inkscape-font-specification:'TlwgMono Medium'"
          d="m 103.96195,30.282216 1.93261,0 c 3.73637,0 6.89297,1.363491 9.46978,4.090474 2.57681,2.726984 3.86522,6.099831 3.86522,10.118544 0,4.018713 -1.28841,7.39156 -3.86522,10.118544 -2.57681,2.726983 -5.73341,4.090474 -9.46978,4.090474 l -1.93261,0 c -3.73638,0 -6.892978,-1.363491 -9.469791,-4.090474 -2.576812,-2.726984 -3.865219,-6.099831 -3.865219,-10.118544 0,-4.018713 1.288407,-7.39156 3.865219,-10.118544 2.576813,-2.726983 5.733411,-4.090474 9.469791,-4.090474 z"
