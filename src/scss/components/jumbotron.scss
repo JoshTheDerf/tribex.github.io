@@ -9,6 +9,9 @@
   min-height: 300px;
   
   margin: 0px;
+  // Pulls the main content up to meet the bottom of the jumbotron.
+  margin-bottom: -$horizontal-margin*3;
+
   padding: $horizontal-margin;
   padding-top: $horizontal-margin*2;
   
@@ -19,8 +22,9 @@
     padding-top: $horizontal-margin*4;
   }
   
-  background-image: url(http://placekitten.com/1600/1000);  
+  background-image: url(../assets/images/test-bg.png);
   background-attachment: fixed;
+  background-size: cover;
   overflow: hidden;
   
   // Adds an "effect" to the background image.

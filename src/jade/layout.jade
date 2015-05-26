@@ -16,7 +16,7 @@ html(class="no-js" lang="en")
    // Custom Stylesheets
    link(rel="stylesheet" href="styles/base.css")
    // TODO: New Favicon
-   link(rel="icon" href="assets/images/tribex-logo.png")
+   link(rel="icon" href="assets/images/semicolon.png")
   block scripts
    // Dependencies
    script(src="vendor/jquery.js")
@@ -27,34 +27,33 @@ html(class="no-js" lang="en")
    script(src="vendor/fastclick.js")
    script(src="vendor/github-activity-feed.js")
    // Custom Scripts
+   script(src="scripts/scroll.js")
    script(src="scripts/navbar.js")
  body
   block navigation
-   nav.main-nav.stuck.clearfix
-    img.logo(src='assets/images/face.svg')
+   nav.main-nav.stuck
+    img.logo(src='assets/images/semicolon.svg')
     a.name(href='./index.html') Missing Semicolon
-    .fa.fa-bars.navbox.clearfix
+    .fa.fa-bars.navbox
      ul
       li
        a.active(href='./index.html') Home
       li
-       a(href='#/blog') Blog
+       a(href='blog.html') Blog
       li
-       a(href='#/resume') Résumé
+       a(href='resume.html') Résumé
       li
-       a(href='#/projects') Projects
+       a(href='projects.html') Projects
       li
-       a(href='#/about') About
+       a(href='about.html') About
       li
        a(href='https://github.com/Tribex')
         | GitHub&nbsp;
         i.fa.fa-github
   block jumbotron
-   .row.jumbotron
-    h1 Jumbotron
-    h4.subheader Kittens
   #main-content
     block content
+      p Example Content
   block footer
    footer
     p Copyright © Joshua Bemenderfer (Tribex) 2015

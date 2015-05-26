@@ -1,0 +1,55 @@
+
+.card {
+  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.3),
+  0 2px 2px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
+  padding: 20px;
+  margin-bottom: 10px;
+  
+  .header {
+    width: 100%;
+    margin-top: 0px;
+    
+    // Header aligned left
+    &.left::before {
+      content: "";
+      display: inline-block;
+      width: 0;
+      height: 0;
+      margin-left: -20px;
+      margin-right: 5px;
+      
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      border-left: 15px solid $primary-color;
+    }
+    
+    // Header aligned right
+    &.right::after {
+      content: "";
+      display: inline-block;
+      width: 0;
+      height: 0;
+      margin-right: -20px;
+      margin-left: 5px;
+      
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      border-right: 15px solid $primary-color;
+    }
+  }
+  
+  .icon {
+    height: 100px;
+    padding-top: 9px;
+    border-radius: 50%;
+    color: #FFF;
+    background-color: $primary-color;
+  }
+  
+  .infobar {
+    .label {
+      margin: 0px 2.5px;
+    }
+  }
+}

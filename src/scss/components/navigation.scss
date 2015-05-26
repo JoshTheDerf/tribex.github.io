@@ -92,10 +92,12 @@ $nav-height: 46px;
     float: left;
     width: $nav-height;
     height: $nav-height;
+    margin-right: 5px;
     padding: 0px;
   }
   
   .name {
+    padding-top: 2px;
     line-height: $nav-height;
     font-weight: bold;
     color: $primary-color;
