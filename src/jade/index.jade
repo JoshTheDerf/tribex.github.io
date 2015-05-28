@@ -1,7 +1,9 @@
 extends layout.jade
 
+block navigation
+  +navigation('Home')
 block jumbotron
-  .jumbotron
+  .jumbotron(style="background-image: url(/out/assets/images/ambiance/desk.png)")
     h1 A Blerg of Coding Disasters
     h4.subheader (Not just the disasters)
 block content
@@ -10,34 +12,16 @@ block content
       .row
         h3 Tales From the Blerg
         h6.subheader Read at thine own peril.
-        .card
-          h5.header: a(href="#") Uppercase Those Hex Strings!
-          p.
-            Hexadecimal strings (you know, those six-character words with numbers and letters from a-f in them, 
-            often prefixed by a # character?) are a fundamental part of any designer or front-end developer's
-            daily routine. They are one of the simplest and most widely supported ways to specify colors
-            in CSS. It comes as a surprise then that those who use them have not yet settled on the letter
-            case to use when writing such strings...
-          .infobar
-            a.label.transparent(href="#") Read More
-            span.label.radius 5/26/15
-            span.label.radius Joshua Bemenderfer
-        .card
-          h5.header: a(href="#") That time I left the compiler running...
-          p.
-           Ad elit nulla in ea ea elit commodo irure anim exercitation cupidatat. Fugiat reprehenderit reprehenderit tempor Lorem magna nisi in anim officia. Aute sit incididunt voluptate veniam ullamco pariatur dolor adipisicing elit enim. Enim nostrud do ullamco tempor eu minim dolore deserunt adipisicing sunt tempor. Qui magna ea veniam incididunt dolore in qui nostrud dolore velit ad Lorem proident. Enim elit sint ea aute anim do Lorem dolor incididunt id eu reprehenderit dolore.
-          .infobar
-            a.label.transparent(href="#") Read More
-            span.label.radius 5/26/15
-            span.label.radius Joshua Bemenderfer
-        .card
-          h5.header: a(href="#") Lorem Ipsums have a secret plot...
-          p.
-            Nisi est nostrud irure irure amet incididunt nulla. Dolore ullamco enim nulla in ad sit officia adipisicing veniam pariatur minim. Officia est do duis esse aliquip aliquip ipsum ullamco eu. Fugiat cupidatat dolor occaecat Lorem culpa deserunt. Mollit fugiat labore amet ex qui aliqua. Consequat et irure duis labore consequat veniam consectetur ex ex sint quis aute deserunt irure. Anim quis id fugiat sit labore aute in ex do adipisicing Lorem do sunt elit.
-          .infobar
-            a.label.transparent(href="#") Read More
-            span.label.radius 5/26/15
-            span.label.radius Joshua Bemenderfer
+        each post in iceblerg.getAllPosts()
+          .card
+            h4.header
+              a(href="./blog/posts/#{post.path}.html")= post.title
+                span.detail &nbsp;- #{iceblerg.formatPostDate(post, "M/D/YY")}
+            .post-content!= iceblerg.contentRenderer(post.preview)
+            .infobar
+              a.label.transparent(href="./blog/posts/#{post.path}.html") Read More
+              each tag in post.tags
+                span.label.secondary.radius: a(href="./blog/tags/#{tag}.html")= tag
       .row
         h3: a(href="about.html") About
         h6.subheader Stuff you probably didn't want to know but makes the page more balanced.
@@ -47,6 +31,12 @@ block content
          Shanghai, China with his family...
          <a href="about.html">More</a>
     .medium-3.columns
-       blockquote
-         | I am crucified with Christ: nevertheless I live; yet not I, but Christ liveth in me: and the life which I now live in the flesh I live by the faith of the Son of God, who loved me, and gave himself for me.
-         cite Galatians 2:20 (KJV)
+      .row
+        blockquote
+          | I am crucified with Christ: nevertheless I live; yet not I, but Christ liveth in me: and the life which I now live in the flesh I live by the faith of the Son of God, who loved me, and gave himself for me.
+          cite Galatians 2:20 (KJV)
+      .row
+        h5 Tags:
+        each tag in iceblerg.getAllTags()
+          span.label.secondary.radius: a(href="./blog/tags/#{tag}.html")= tag
+          | &nbsp;

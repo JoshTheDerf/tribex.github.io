@@ -34,15 +34,32 @@ var autoprefixer = require('gulp-autoprefixer');
 var minifyCSS = require('gulp-minify-css');
 var sourcemaps = require('gulp-sourcemaps');
 
+var iceblerg = require('iceblerg');
+
+var tribexBlog = new iceblerg({
+  'post-dir': './src/content/posts',
+  'template-dir': './src/jade/blog',
+  'output-dir': './out/blog',
+});
+
 
 // Task to generate pages.
 gulp.task('jade', function() {
-  // TODO: Add locals/content insertion
-  gulp.src('./src/jade/**/*.jade')
-    .pipe(jade({
-      locals: null,
-    }).on('error', console.log))
-    .pipe(gulp.dest('./out/'))
+  // Build blog first
+  tribexBlog.buildModel(function(model) {
+    tribexBlog.generate(model);
+    gulp.src(['./src/jade/**/*.jade',
+      '!./src/jade/includes/**/*.jade',
+      '!./src/jade/blog/**/*.jade'
+    ])
+      .pipe(jade({
+        pretty: true,
+        data: {
+          'iceblerg': model,
+        }
+      }).on('error', console.log))
+      .pipe(gulp.dest('./out/'));
+  });
 });
 
 // Task to compile scss files.
@@ -59,13 +76,13 @@ gulp.task('scss', function() {
     }))
     .pipe(minifyCSS())
     .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest('./out/styles'))
+    .pipe(gulp.dest('./out/styles'));
 });
 
 // Task to watch source files and run all tasks when files change.
 gulp.task('default', function() {
-  gulp.watch('./src/**/*.*', ['scss', 'jade'])
-  gulp.src('./out')
+  gulp.watch('./src/**/*.*', ['scss', 'jade']);
+  gulp.src('./')
     .pipe(webserver({
       livereload: true,
       directoryListing: {

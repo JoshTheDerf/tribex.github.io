@@ -1,0 +1,28 @@
+extends ../layout.jade
+
+block title
+  title #{iceblerg.page.title} - Missing Semicolon
+  
+block navigation
+  +navigation('Blog')
+block content
+    .row.full
+        .medium-11.columns
+            ul.breadcrumbs
+              li: a(href="#{iceblerg.getOverviewURL()}") Blog
+              li: a(href="#{iceblerg.getOverviewURL()}") Posts
+              li.current: a(href="#{iceblerg.getPostURL(iceblerg.page)}") #{iceblerg.page.title}
+            .card
+              h4.header
+                a(href="#{iceblerg.getPostURL(iceblerg.page)}")= iceblerg.page.title
+                  span.detail &nbsp;- #{iceblerg.formatPostDate(iceblerg.page, "M/D/YY")}
+              .post-content!= iceblerg.contentRenderer(iceblerg.page.body)
+              .infobar
+                each tag in iceblerg.page.tags
+                  span.label.secondary.radius: a(href="#{iceblerg.getTagURL(tag)}")= tag
+        .medium-1.columns
+          .row
+            h5 Tags:
+            each tag in iceblerg.getAllTags()
+              span.label.secondary.radius: a(href="#{iceblerg.getTagURL(tag)}")= tag
+              | &nbsp;

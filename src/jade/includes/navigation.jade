@@ -1,0 +1,35 @@
+mixin navigation(activePage)
+  nav.main-nav.stuck
+    img.logo(src='/out/assets/images/semicolon.svg')
+    a.name(href='/out/index.html') Missing Semicolon
+    .fa.fa-bars.navbox
+      ul
+        li
+          if activePage == 'Home'
+            a.active(href='/out/index.html') Home
+          else
+            a(href='/out/index.html') Home
+        li
+          if activePage == 'Blog'
+            a.active(href='/out/blog/main/overview.html') Blog
+          else
+            a(href='/out/blog/main/overview.html') Blog
+        li
+          if activePage == 'Resume'
+            a.active(href='/out/resume.html') Résumé
+          else
+            a(href='/out/resume.html') Résumé
+        li
+          if activePage == 'Projects'
+            a.active(href='/out/projects.html') Projects
+          else
+            a(href='/out/projects.html') Projects
+         li
+           if activePage == 'About'
+             a.active(href='/out/about.html') About
+           else
+             a(href='/out/about.html') About
+         li
+           a(href='https://github.com/Tribex')
+             | GitHub&nbsp;
+             i.fa.fa-github

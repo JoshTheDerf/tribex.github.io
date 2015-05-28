@@ -1,0 +1,34 @@
+extends ../layout.jade
+
+block title
+  title Posts tagged "#{iceblerg.page.tag}" - Missing Semicolon
+  
+block navigation
+  +navigation('Blog')
+block jumbotron
+  .jumbotron(style="background-image: url(/out/assets/images/ambiance/editor.png)")
+    h1 The Blerg
+block content
+    .row.full
+        .medium-11.columns
+          ul.breadcrumbs
+            li: a(href="#{iceblerg.getOverviewURL()}") Blog
+            li: a(href="#{iceblerg.getOverviewURL()}") Posts
+            li.current: a(href="#{iceblerg.getTagURL(iceblerg.page.tag)}") Tag:#{iceblerg.page.tag}
+          h3 Posts tagged "#{iceblerg.page.tag}"
+          each post in iceblerg.getPostsByTag(iceblerg.page.tag)
+            .card
+              h4.header
+                a(href="#{iceblerg.getPostURL(post)}")= post.title
+                  span.detail &nbsp;- #{iceblerg.formatPostDate(post, "M/D/YY")}
+              .post-content!= iceblerg.contentRenderer(post.preview)
+              .infobar
+                a.label.transparent(href="#{iceblerg.getPostURL(post)}") Read More
+                each tag in post.tags
+                  span.label.secondary.radius: a(href="#{iceblerg.getTagURL(tag)}")= tag
+        .medium-1.columns
+          .row
+            h5 Tags:
+            each tag in iceblerg.getAllTags()
+              span.label.secondary.radius: a(href="#{iceblerg.getTagURL(tag)}")= tag
+              | &nbsp;
