@@ -6,6 +6,10 @@
   padding: 20px;
   margin-bottom: 10px;
   
+  &.info {
+    background-color: darken(#FFF, 20);
+  }
+  
   .header {
     width: 100%;
     margin-top: 0px;

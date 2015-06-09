@@ -17,7 +17,7 @@ block content
               h4.header
                 a(href="#{iceblerg.getPostURL(post)}")= post.title
                   span.detail &nbsp;- #{iceblerg.formatPostDate(post, "M/D/YY")}
-              .post-content!= iceblerg.contentRenderer(post.preview)
+              .post-content.markdown!= iceblerg.contentRenderer(post.preview)
               .infobar
                 a.label.transparent(href="#{iceblerg.getPostURL(post)}") Read More
                 each tag in post.tags

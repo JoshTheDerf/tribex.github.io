@@ -2,57 +2,61 @@ doctype html
 include ./includes/navigation.jade
 
 html(class='no-js' lang='en')
- head
-  meta(charset='utf-8')
-  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
 
-  block title
-   title Missing Semicolon
-  block styles
-   // Webfonts
-   link(rel='stylesheet' href='/out/vendor/fonts/fontawesome/stylesheet.css')
-   link(rel='stylesheet' href='/out/vendor/fonts/octicons/stylesheet.css')
-   // Foundation
-   link(rel='stylesheet' href='/out/styles/normalize.css')
-   link(rel='stylesheet' href='/out/styles/foundation.css')
-   // Custom Stylesheets
-   link(rel='stylesheet' href='/out/styles/base.css')
-   // TODO: New Favicon
-   link(rel='icon' href='/out/assets/images/semicolon.png')
-  block scripts
-   // Dependencies
-   script(src='/out/vendor/jquery.js')
-   script(src='/out/vendor/jquery.cookie.js')
-   script(src='/out/vendor/placeholder.js')
-   script(src='/out/vendor/modernizr.js')
-   script(src='/out/vendor/moment.min.js')
-   script(src='/out/vendor/fastclick.js')
-   script(src='/out/vendor/github-activity-feed.js')
-   // Custom Scripts
-   script(src='/out/scripts/scroll.js')
-   script(src='/out/scripts/navbar.js')
- body
-  block navigation
-  block jumbotron
-  #main-content
-    block content
-      p Example Content
-  block footer
-   footer
-    p Copyright © Joshua Bemenderfer (Tribex) 2015
-    p
-     | Technologies: 
-     a(href='https://github.com/Tribex/iceblerg') iceblerg
-     |  | 
-     a(href='http://gulpjs.com') Gulp
-     |  | 
-     a(href='http://sass-lang.com/') Sass
-     |  | 
-     a(href='http://jade-lang.com') Jade
-     |  | 
-     a(href='http://foundation.zurb.com') Foundation
-    p
-     a(href='/out/old/index.html') Old Theme
-  block foundation
-   script(src='/out/vendor/foundation.min.js')
-   script $(document).foundation()
+    block title
+      title Missing Semicolon
+    block styles
+      // Webfonts
+      link(rel='stylesheet' href='/out/vendor/fonts/fontawesome/stylesheet.css')
+      link(rel='stylesheet' href='/out/vendor/fonts/octicons/stylesheet.css')
+      // HighlightJS
+      link(rel='stylesheet' href='/out/vendor/highlightjs-styles/github-gist.css')
+      // Foundation
+      link(rel='stylesheet' href='/out/styles/normalize.css')
+      link(rel='stylesheet' href='/out/styles/foundation.css')
+      // Custom Stylesheets
+      link(rel='stylesheet' href='/out/styles/base.css')
+      // TODO: New Favicon
+      link(rel='icon' href='/out/assets/images/semicolon.png')
+    block scripts
+      // Dependencies
+      script(src='/out/vendor/jquery.js')
+      script(src='/out/vendor/jquery.cookie.js')
+      script(src='/out/vendor/placeholder.js')
+      script(src='/out/vendor/modernizr.js')
+      script(src='/out/vendor/moment.min.js')
+      script(src='/out/vendor/fastclick.js')
+      script(src='/out/vendor/github-activity-feed.js')
+      script(src='/out/vendor/highlight.pack.js')
+      // Custom Scripts
+      script(src='/out/scripts/scroll.js')
+      script(src='/out/scripts/navbar.js')
+  body
+    block navigation
+    block jumbotron
+    #main-content
+      block content
+        p Example Content
+    block footer
+      footer
+        p Copyright © Joshua Bemenderfer (Tribex) 2015
+        p
+          | Technologies: 
+          a(href='https://github.com/Tribex/iceblerg') iceblerg
+          |  | 
+          a(href='http://gulpjs.com') Gulp
+          |  | 
+          a(href='http://sass-lang.com/') Sass
+          |  | 
+          a(href='http://jade-lang.com') Jade
+          |  | 
+          a(href='http://foundation.zurb.com') Foundation
+        p
+          a(href='/old/index.html') Old Theme
+    block misc-scripts
+      script(src='/out/vendor/foundation.min.js')
+      script $(document).foundation()
+      script hljs.initHighlightingOnLoad();

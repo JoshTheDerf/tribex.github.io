@@ -24,6 +24,7 @@
 
 var gulp = require('gulp');
 var webserver = require('gulp-webserver');
+var livereload = require('gulp-livereload');
 
 var jade = require('gulp-jade');
 var data = require('gulp-data');
@@ -52,13 +53,14 @@ gulp.task('jade', function() {
       '!./src/jade/includes/**/*.jade',
       '!./src/jade/blog/**/*.jade'
     ])
-      .pipe(jade({
-        pretty: true,
-        data: {
-          'iceblerg': model,
-        }
-      }).on('error', console.log))
-      .pipe(gulp.dest('./out/'));
+    .pipe(jade({
+      pretty: true,
+      data: {
+        'iceblerg': model,
+      }
+    }).on('error', console.log))
+    .pipe(gulp.dest('./out/'))
+    .pipe(livereload())
   });
 });
 
@@ -76,19 +78,22 @@ gulp.task('scss', function() {
     }))
     .pipe(minifyCSS())
     .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest('./out/styles'));
+    .pipe(gulp.dest('./out/styles'))
+    .pipe(livereload())
 });
 
 // Task to watch source files and run all tasks when files change.
 gulp.task('default', function() {
+  livereload.listen({
+    'basePath': './',
+  });
   gulp.watch('./src/**/*.*', ['scss', 'jade']);
   gulp.src('./')
-    .pipe(webserver({
-      livereload: true,
-      directoryListing: {
-        enabled: true,
-        path: './',
-      },
-      open: true,
-    }));
+  .pipe(webserver({
+    directoryListing: {
+      enabled: true,
+      path: './',
+    },
+    open: true,
+  }));
 });

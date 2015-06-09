@@ -16,10 +16,25 @@ block content
               h4.header
                 a(href="#{iceblerg.getPostURL(iceblerg.page)}")= iceblerg.page.title
                   span.detail &nbsp;- #{iceblerg.formatPostDate(iceblerg.page, "M/D/YY")}
-              .post-content!= iceblerg.contentRenderer(iceblerg.page.body)
+              .post-content.markdown!= iceblerg.contentRenderer(iceblerg.page.body)
               .infobar
                 each tag in iceblerg.page.tags
                   span.label.secondary.radius: a(href="#{iceblerg.getTagURL(tag)}")= tag
+            .card
+              // Disqus Comment Embed
+              #disqus_thread
+              script(type="text/javascript").
+                /* * * DISQUS CONFIGURATION VARIABLES * * */
+                var disqus_shortname = 'missing-semicolon';
+                var disqus_identifier = '#{iceblerg.page.title}';
+                var disqus_title = '#{iceblerg.page.title}';
+
+                /* * * DON'T EDIT BELOW THIS LINE * * */
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
         .medium-1.columns
           .row
             h5 Tags:
