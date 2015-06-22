@@ -1,0 +1,223 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Jade and Ractive.js - A Match Made in Templating Heaven - Missing Semicolon</title><!-- Webfonts--><link rel="stylesheet" href="/out/vendor/fonts/fontawesome/stylesheet.css"><link rel="stylesheet" href="/out/vendor/fonts/octicons/stylesheet.css"><!-- HighlightJS--><link rel="stylesheet" href="/out/vendor/highlightjs-styles/github-gist.css"><!-- Foundation--><link rel="stylesheet" href="/out/styles/normalize.css"><link rel="stylesheet" href="/out/styles/foundation.css"><!-- Custom Stylesheets--><link rel="stylesheet" href="/out/styles/base.css"><!-- TODO: New Favicon--><link rel="icon" href="/out/assets/images/semicolon.png"><!-- Dependencies--><script src="/out/vendor/jquery.js"></script><script src="/out/vendor/jquery.cookie.js"></script><script src="/out/vendor/placeholder.js"></script><script src="/out/vendor/modernizr.js"></script><script src="/out/vendor/moment.min.js"></script><script src="/out/vendor/fastclick.js"></script><script src="/out/vendor/github-activity-feed.js"></script><script src="/out/vendor/highlight.pack.js"></script><!-- Custom Scripts--><script src="/out/scripts/scroll.js"></script><script src="/out/scripts/navbar.js"></script><script src="/out/scripts/manage-social-buttons.js"></script></head><body><nav class="main-nav stuck"><img src="/out/assets/images/semicolon.svg" class="logo"><a href="/out/index.html" class="name">Missing Semicolon</a><div class="fa fa-bars navbox"><ul><li><a href="/out/index.html">Home</a></li><li><a href="/out/blog/main/overview.html" class="active">Blog</a></li><li><a href="/out/resume.html">Résumé</a></li><li><a href="/out/projects.html">Projects</a></li><li><a href="/out/about.html">About</a></li><li><a href="https://github.com/Tribex">GitHub&nbsp;<i class="fa fa-github"></i></a></li></ul></div></nav><div id="main-content"><div class="row full"><div class="medium-11 columns"><ul class="breadcrumbs"><li><a href="../main/overview.html">Blog</a></li><li><a href="../main/overview.html">Posts</a></li><li class="current"><a href="../posts/Using%20Jade%20With%20Ractive.js.html">Jade and Ractive.js - A Match Made in Templating Heaven</a></li></ul><div class="card"><h2 class="header"><a href="../posts/Using%20Jade%20With%20Ractive.js.html">Jade and Ractive.js - A Match Made in Templating Heaven<span class="detail">&nbsp;- 6/20/15</span></a></h2><div class="post-content markdown"><h3 id="contents">Contents</h3>
+<ul>
+<li><a href="#introduction">Introduction</a><ul>
+<li><a href="#jade-intro">What on Earth is Jade?</a></li>
+<li><a href="#ractive-intro">What on Earth is Ractive.js</a></li>
+</ul>
+</li>
+<li><a href="#importing-at-compile-time">Example: Importing Ractive Templates at Compile Time</a></li>
+<li><a href="#warnings">Warnings</a></li>
+<li><a href="#acknowledgements">Acknowledgements</a></li>
+</ul>
+<h3 id="-a-name-introduction-a-introduction"><a name="introduction"></a> Introduction</h3>
+<p>Let&#39;s face it. HTML and even XML in general is clunky and easy to mess up. Its monolithic structure makes it hard to maintain the complex, multi-faceted web applications of today. To make matters worse, it requires excessive and complicated DOM manipulation to patch together anything that vaguely resembles a dynamic page.</p>
+<p>Over the years people have come up with more than a few frameworks to try and mitigate these all-too-common problems, each with its own philosophies, design choices, and issues that come along as baggage.</p>
+<p>While others might like more complete solutions such as <a href="https://angular.io/">Angular</a> or even <a href="http://facebook.github.io/react/">React</a>, I personally prefer using lots of unopinionated, separate libraries, each trying to solve one problem and solve it well.</p>
+<p>For the particular issues mentioned at the start of this article, I chose <a href="http://jade-lang.com/">Jade</a> for a modular and easy-to-maintain page structure, built at compile-time, and <a href="http://www.ractivejs.org/">Ractive.js</a> for simple (yet incredibly powerful) dynamic interaction capabilities during run-time.</p>
+<hr>
+<h4 id="-a-name-jade-intro-a-what-on-earth-is-jade-http-jade-lang-com-"><a name="jade-intro"></a> What on Earth is <a href="http://jade-lang.com/">Jade</a>?</h4>
+<ul>
+<li>A terse, expressive, easy-to-understand language which compiles to HTML.</li>
+<li>Based on indentation rather than tags.</li>
+<li>Makes it easy to import files, extend them, or even modify blocks of markup in parent templates.</li>
+<li>Embed JavaScript during build time.</li>
+<li>Built-in expressions like if and for-each.</li>
+<li>Specify ids and classes off-the-block with CSS-like syntax. Avoids excess attributes.</li>
+<li>Takes far less time to learn that it would appear. It&#39;s just more natural.</li>
+<li>And much, much more...</li>
+</ul>
+<h5 id="html-example-">HTML Example:</h5>
+<pre><code class="lang-html">&lt;!-- Insert 100-line head/layout HTML here --&gt;
+&lt;div class=&quot;mainContent&quot;&gt;
+    &lt;div id=&quot;myNewButton&quot; class=&quot;btn btn-default&quot;&gt;
+        &lt;span class=&quot;fa fa-plus&quot;&gt;&lt;/span&gt;
+        &lt;span&gt;My Button&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;span class=&quot;content-link&quot;&gt;&lt;a href=&quot;/foo.html&quot;&gt;Foo&lt;/a&gt;&lt;/span&gt;
+&lt;/div&gt;
+&lt;!-- Insert 30-line footer HTML here --&gt;
+</code></pre>
+<hr>
+<h5 id="jade-example-">Jade Example:</h5>
+<pre><code class="lang-jade">// Layout is in another file.
+extends ./layout.jade
+// All this file changes from layout.jade is the content block, adding these tags to it.
+block append content
+    div#myNewButton.btn.btn-default
+        span.fa.fa-plus
+        span My Button
+    span.content-link: a(href=&quot;/foo.html&quot;) Foo
+</code></pre>
+<hr>
+<h4 id="-a-name-ractive-intro-a-what-on-earth-is-ractive-js-http-www-ractivejs-org-"><a name="ractive-intro"></a> What on Earth is <a href="http://www.ractivejs.org/">Ractive.js</a>?</h4>
+<ul>
+<li>A simple (read unopinionated) way to bind data models (plain JavaScript objects) to templates. (HTML + Handlebars)</li>
+<li>Uses two-way data binding, so any changes to the model update the view, and vice-versa.</li>
+<li>Eliminates the need for a controller, in fact, for any other boilerplate code at all.</li>
+<li>Fast, like, as fast as could be. Only rebuilds the parts of the DOM that are needed when the model changes.</li>
+<li>Way, way easier to use than Angular. :P</li>
+</ul>
+<h5 id="raw-html-example-">Raw HTML Example:</h5>
+<p>Template:</p>
+<pre><code class="lang-html">&lt;div id=&quot;#outputElement&quot;&gt;
+  &lt;p&gt;&lt;span id=&quot;greeting&quot;&gt;&lt;/span&gt;, &lt;span id=&quot;name&quot;&gt;&lt;/span&gt;!&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+<p>Controller:</p>
+<pre><code class="lang-javascript">var updateGreeting = function(greeting) {
+  document.getElementById(&quot;greeting&quot;).textContent = greeting;
+}
+
+var updateName = function(name) {
+  document.getElementById(&quot;name&quot;).textContent = name;
+}
+
+// Now the above functions must be called whenever you want to change the name data.
+var data = {
+  greeting: &quot;Hello&quot;,
+  name: &quot;World&quot;,
+}
+
+updateGreeting(data.greeting);
+updateName(data.name);
+</code></pre>
+<p>Output:</p>
+<pre><code class="lang-html">&lt;div id=&quot;#outputElement&quot;&gt;
+  &lt;p&gt;&lt;span id=&quot;greeting&quot;&gt;Hello&lt;/span&gt;, &lt;span id=&quot;name&quot;&gt;World&lt;/span&gt;!&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+<hr>
+<h5 id="ractive-js-example-">Ractive.js Example:</h5>
+<p>Template:</p>
+<pre><code class="lang-html">&lt;script type=&quot;text/ractive&quot; id=&quot;templateElement&quot;&gt;
+    &lt;p&gt;{{greeting}}, {{name}}!&lt;/p&gt;
+&lt;/script&gt;
+
+&lt;div id=&quot;#outputElement&quot;&gt;
+    &lt;!-- Template gets rendered here --&gt;
+&lt;/div&gt;
+</code></pre>
+<p>Controller:</p>
+<pre><code class="lang-javascript">var controller = new Ractive({
+  el: &quot;#outputElement&quot;,
+  template: &quot;#templateElement&quot;,
+  data: { greeting: &#39;Hello&#39;, name: &#39;Steve&#39; } // Change the data object and the output will update immediately.
+});
+</code></pre>
+<p>Output:</p>
+<pre><code class="lang-html">&lt;div id=&quot;#outputElement&quot;&gt;
+  &lt;p&gt;Hello, Steve!&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+<p>How&#39;s that for terse?</p>
+<hr>
+<p>Now at first glance, it&#39;s hard to see how these two systems are capable of fitting together. (In fact, I&#39;ve never heard of anyone combining the two before.) Turns out, despite the incredible differences between Jade and HTML syntaxes, Ractive templates still work excellently. In fact, Jade <em>compliments</em> Ractive by allowing ractive partials and templates to be imported from other files at compile time, removing the need for strange and unwieldy AJAX or script based loads. It&#39;s a win-win!</p>
+<p>So, how can we use these together for maximum effectiveness and modularity? Let&#39;s take a look:</p>
+<hr>
+<h3 id="-a-name-importing-at-compile-time-a-importing-ractive-templates-at-compile-time-span-class-detail-demo-out-demo-jade-ractive-js-index-html-span-"><a name="importing-at-compile-time"></a> Importing Ractive Templates at Compile Time <span class="detail"><a href="/out/demo/jade+ractive.js/index.html"> - Demo</a></span></h3>
+<p>Ractive templates normally need to be embedded into their host page, or loaded on-demand via AJAX. Both solutions are not particularly optimal. You either get a cluttered HTML file or lots of callback-hungry boilerplate. With Jade though, you can write the code in separate files and have it compiled into a single file when building. Thus we get the best of both worlds!</p>
+<p><strong>Why it works:</strong> Jade imports and DOM parsing still function under script tags.</p>
+<p><strong>Note:</strong> The examples below assume you already know the basics of compiling Jade. Compilation instructions are not provided and the following examples are guidelines, not to be copy-pasted blindly.</p>
+<p>index.jade - compiles to out/index.html:</p>
+<pre><code class="lang-jade">doctype html
+  head
+    meta(charset=&quot;utf-8&quot; lang=&quot;en&quot;)
+    title Jade+Ractive.js Imports Demo&#39;
+    //- Pull in dependencies. (Ractive.js requires jQuery)
+    script(src=&quot;./lib/jquery.js&quot;)
+    script(src=&quot;./lib/ractive.js&quot;)
+  body
+    script#ractive-template-1(type=&quot;text/ractive&quot;)
+      //- Load and parse ./template.jade here.
+      include ./template.jade
+    #ractive-output-1
+    //- Ractive initialization script.
+    script.
+      var userDetails = new Ractive({
+        el: &quot;#ractive-output-1&quot;,
+        template: &quot;#ractive-template-1&quot;,
+        data: {
+          first_name: &quot;John&quot;,
+          last_name: &quot;Doe&quot;,
+          email: &quot;john.doe@fakemail.com&quot;
+        }
+      });
+</code></pre>
+<p>template.jade:</p>
+<pre><code class="lang-jade">p First Name:
+  input(type=&quot;text&quot; value=&quot;{{first_name}}&quot;)
+p Last Name:
+  input(type=&quot;text&quot; value=&quot;{{last_name}}&quot;)
+p Email:
+  input(type=&quot;text&quot; value=&quot;{{email}}&quot;)
+</code></pre>
+<p>After compiling, the resulting <code>out/index.html</code> file should look like this:</p>
+<pre><code class="lang-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; lang=&quot;en&quot;/&gt;
+    &lt;title&gt;Jade+Ractive.js Imports Demo&lt;/title&gt;
+    &lt;script src=&quot;./vendor/jquery.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;./vendor/ractive.js&quot;&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;script id=&quot;ractive-template-1&quot; type=&quot;text/ractive&quot;&gt;
+      &lt;p&gt;First Name: &lt;input type=&quot;text&quot; value=&quot;{{first_name}}&quot;/&gt;&lt;/p&gt;
+      &lt;p&gt;Last Name: &lt;input type=&quot;text&quot; value=&quot;{{last_name}}&quot;/&gt;&lt;/p&gt;
+      &lt;p&gt;Email: &lt;input type=&quot;text&quot; value=&quot;{{email}}&quot;/&gt;&lt;/p&gt;
+    &lt;/script&gt;
+    &lt;div id=&quot;ractive-output-1&quot;&gt;&lt;/div&gt;
+    &lt;script&gt;
+      var userDetails = new Ractive({
+        el: &quot;#ractive-output-1&quot;,
+        template: &quot;#ractive-template-1&quot;,
+        data: {
+          first_name: &quot;John&quot;,
+          last_name: &quot;Doe&quot;,
+          email: &quot;john.doe@fakemail.com&quot;
+        }
+      });
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>If you open a page in the browser, it should render as expected.</p>
+<p><img src="/out/assets/images/blog/jade+ractive.js/Import-Output-John.png" alt="Page Output"></p>
+<p>Try changing the text in the <code>first_name</code> input element, then run <code>userDetails.get(&quot;first_name&quot;)</code> in the console. You&#39;ll notice that the value in the data object changed as well. This is an example of two-way data binding. Changes in the model or the view will affect both the model and the view, greatly speeding up the development of applications heavily-reliant on user interaction.</p>
+<p><img src="/out/assets/images/blog/jade+ractive.js/Import-Output-Steve.png" alt="Page Output Changed"></p>
+<h3 id="-a-name-warnings-a-warnings"><a name="warnings"></a> Warnings</h3>
+<ul>
+<li><p>Jade relies on indentation, so blocks inside ractive mustaches cannot be indented in further than Jade expects. This so far is the only limitation I&#39;ve come across.</p>
+<p> Invalid Jade:</p>
+<pre><code class="lang-jade"> p Test
+ {{each testObject}}
+   p {{name}}
+ {{/each}}
+</code></pre>
+<p> Valid Jade: (May throw indentation warnings.)</p>
+<pre><code class="lang-jade"> p Test
+ {{each testObject}}
+ p {{name}}
+ {{/each}}
+</code></pre>
+</li>
+<li>Structure your files carefully! A bunch of poorly organized files is just as bad, if not worse, than a single cluttered one.</li>
+</ul>
+<p>That&#39;s all there is too it! Feel free to share some of the crazy conglomerations you come up with mixing Jade and Ractive.js, I&#39;d love to see them.</p>
+<hr>
+<h3 id="-a-name-acknowledgements-a-acknowledgements"><a name="acknowledgements"></a> Acknowledgements</h3>
+<ul>
+<li>Big thanks to <a href="http://www.forbeslindesay.co.uk/">Mr. Forbes Lindesay</a> for coming up with Jade. Template building has never been so enjoyable.</li>
+<li>An equally large thanks is directed towards <a href="http://rich-harris.co.uk/">Mr. Rich Harris</a> for creating Ractive.js. A nice, small library that handles two-way data binding exceptionally is quite the breath of fresh air.</li>
+</ul>
+</div><div class="infobar"><div class="left"><span class="label secondary radius"><a href="../tags/JavaScript.html">JavaScript</a></span><span class="label secondary radius"><a href="../tags/Jade.html">Jade</a></span><span class="label secondary radius"><a href="../tags/Ractivejs.html">Ractivejs</a></span><span class="label secondary radius"><a href="../tags/Tutorials%20&amp;%20Tips.html">Tutorials &amp; Tips</a></span></div><div class="right social">Share: <a href="http://twitter.com/home?status=Interesting post: --[LOCATION]--" title="Tweet Post" class="fa fa-twitter sharebtn"></a><a href="http://www.facebook.com/share.php?u=--[LOCATION]--" title="Share on Facebook" class="fa fa-facebook sharebtn"></a><a href="https://plusone.google.com/_/+1/confirm?hl=en&amp;url=http%3A%2F%2F%20--[LOCATION]--" title="Share on Google+" class="fa fa-google-plus sharebtn"></a><a href="mailto:person@example.com?subject=Jade and Ractive.js - A Match Made in Templating Heaven&amp;body=Jade and Ractive.js - A Match Made in Templating Heaven: --[LOCATION]--&lt;/a&gt;" title="Email Post" class="fa fa-envelope sharebtn"></a></div></div></div><div class="card"><!-- Disqus Comment Embed--><div id="disqus_thread"></div><script type="text/javascript">/* * * DISQUS CONFIGURATION VARIABLES * * */
+var disqus_shortname = 'missing-semicolon';
+var disqus_identifier = 'Jade and Ractive.js - A Match Made in Templating Heaven';
+var disqus_title = 'Jade and Ractive.js - A Match Made in Templating Heaven';
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script></div></div><div class="medium-1 columns"><div class="row"><h5>Tags:</h5><span class="label secondary radius"><a href="./blog/tags/iceblerg.html">iceblerg</a></span><br><span class="label secondary radius"><a href="./blog/tags/JavaScript.html">JavaScript</a></span><br><span class="label secondary radius"><a href="./blog/tags/Jade.html">Jade</a></span><br><span class="label secondary radius"><a href="./blog/tags/Ractivejs.html">Ractivejs</a></span><br><span class="label secondary radius"><a href="./blog/tags/Tutorials &amp; Tips.html">Tutorials &amp; Tips</a></span><br></div></div></div></div><footer><p>Copyright © Joshua Bemenderfer (Tribex) 2015</p><p>Technologies: <a href="https://github.com/Tribex/iceblerg">iceblerg</a> | <a href="http://gulpjs.com">Gulp</a> | <a href="http://sass-lang.com/">Sass</a> | <a href="http://jade-lang.com">Jade</a> | <a href="http://foundation.zurb.com">Foundation</a></p><p><a href="/old/index.html">Old Theme</a></p></footer><script src="/out/vendor/foundation.min.js"></script><script>$(document).foundation()</script><script>hljs.initHighlightingOnLoad();</script></body></html>

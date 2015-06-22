@@ -12,7 +12,7 @@ block content
       .row
         h3 Tales From the Blerg
         h6.subheader Read at thine own peril.
-        each post in iceblerg.getAllPosts()
+        each post in iceblerg.getAllPosts().sort(iceblerg.sortNewestOldest)
           .card
             h4.header
               a(href="./blog/posts/#{post.path}.html")= post.title
@@ -36,7 +36,4 @@ block content
           | I am crucified with Christ: nevertheless I live; yet not I, but Christ liveth in me: and the life which I now live in the flesh I live by the faith of the Son of God, who loved me, and gave himself for me.
           cite Galatians 2:20 (KJV)
       .row
-        h5 Tags:
-        each tag in iceblerg.getAllTags()
-          span.label.secondary.radius: a(href="./blog/tags/#{tag}.html")= tag
-          | &nbsp;
+        include includes/tags.jade

@@ -16,7 +16,7 @@ block content
             li: a(href="#{iceblerg.getOverviewURL()}") Posts
             li.current: a(href="#{iceblerg.getTagURL(iceblerg.page.tag)}") Tag:#{iceblerg.page.tag}
           h3 Posts tagged "#{iceblerg.page.tag}"
-          each post in iceblerg.getPostsByTag(iceblerg.page.tag)
+          each post in iceblerg.getPostsByTag(iceblerg.page.tag).sort(iceblerg.sortNewestOldest)
             .card
               h4.header
                 a(href="#{iceblerg.getPostURL(post)}")= post.title
@@ -28,7 +28,4 @@ block content
                   span.label.secondary.radius: a(href="#{iceblerg.getTagURL(tag)}")= tag
         .medium-1.columns
           .row
-            h5 Tags:
-            each tag in iceblerg.getAllTags()
-              span.label.secondary.radius: a(href="#{iceblerg.getTagURL(tag)}")= tag
-              | &nbsp;
+            include ../includes/tags.jade

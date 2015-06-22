@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Jade+Ractive.js Imports Demo</title>
+    <script src="/out/vendor/jquery.js"></script>
+    <script src="/out/vendor/ractive.js"></script>
+  </head>
+  <body>
+    <script id="ractive-template-1" type="text/ractive">
+      <p>First Name: <input type="text" value="{{first_name}}"/></p>
+      <p>Last Name: <input type="text" value="{{last_name}}"/></p>
+      <p>Email: <input type="text" value="{{email}}"/></p>
+    </script>
+    <div id="ractive-output-1"></div>
+    <script>
+      var userDetails = new Ractive({
+        el: "#ractive-output-1",
+        template: "#ractive-template-1",
+        data: {
+          first_name: "John",
+          last_name: "Doe",
+          email: "john.doe@fakemail.com"
+        }
+      });
+    </script>
+  </body>
+</html>

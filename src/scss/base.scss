@@ -1,3 +1,4 @@
+// TODO: Totally refactor this file. It's a spaghetti-level mess.
 // Define Custom Variables.
 // Transitions
 $transition-duration: 200ms;
@@ -22,23 +23,108 @@ $horizontal-margin: 40px;
 
 #main-content {
   padding-top: ($horizontal-margin*3)+5;
+  
+  p {
+    margin: 5px;
+  }
+
+  a {
+    transition: all $transition-duration;
+    border-bottom: 1px solid rgba(100,100,100,0.1);
+    
+    &:hover {
+      border-radius: 3px;
+      border-bottom: 1px solid rgba(100,100,100,0.25);
+      background-color: rgba(100,100,100,0.08);
+    }
+  }
+  
+  h1,h2,h3,h4,h5,h6 {
+    .detail {
+      opacity: 0.0;
+      transition: opacity $transition-duration;
+    }
+
+    &:hover {
+      .detail {
+        opacity: 0.5;
+      }
+    }
+  }
+
+  blockquote, blockquote p {
+    color: #6F6F6F;
+    
+    cite {
+      color: $primary-color;
+    }
+  }
+  
+  .header {
+    > a {
+      display: inline-block;
+      width: 100%;
+    }
+  }
+
+  .social {
+    font-size: .8rem;
+    a.sharebtn {
+      width: 22px;
+      height: 22px;
+      padding: 4px;
+      margin: 2px;
+      background-color: $primary-color;
+      color: #FFF;
+      border-radius: 4px;
+      font-size: .8rem;
+      text-align: center;
+      border: none;
+    
+      &:hover {
+        color: #FFF;
+        background-color: darken($primary-color, 7);
+        border: none;
+      }
+    }
+  }
+  .label {
+    padding: .25rem .25rem;
+    font-size: 0.8rem;
+    &.transparent {
+      color: $primary-color;
+      background-color: transparent;
+    }
+    
+    &.info, &.secondary {
+      a {
+        color: $black;
+        
+        &:hover {
+          color: $primary-color;
+        }
+      }
+    }
+    
+    a {
+      color: $white;
+      border-bottom: none;
+      
+      &:hover {
+        color: darken($white, 20);
+      }
+    }
+  }
 }
 
-p {
-  margin: 5px;
-}
-
-a {
-  transition: all $transition-duration;
-}
-
-// Scrollbar Styles (Webkit/Blink Browsers Only)
+// Webkit/Blink-specific Styles
 ::-webkit-scrollbar-track {
   background-color: #DDD;
 }
 
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 7px;
+  height: 7px;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -53,6 +139,11 @@ a {
   }
 }
 
+*::selection {
+  color: #EEE;
+  background-color: #871B19;
+}
+
 // Foundation style overrides
 .row {
   padding: 5px;
@@ -62,40 +153,5 @@ a {
     margin-left: auto;
     margin-right: auto;
     max-width: initial;
-  }
-}
-
-.label {
-  padding: .25rem .25rem;
-  font-size: 0.8rem;
-  &.transparent {
-    color: $primary-color;
-    background-color: transparent;
-  }
-  
-  &.info, &.secondary {
-    a {
-      color: $black;
-      
-      &:hover {
-        color: $primary-color;
-      }
-    }
-  }
-  
-  a {
-    color: $white;
-    
-    &:hover {
-      color: darken($white, 20);
-    }
-  }
-}
-
-blockquote, blockquote p {
-  color: #6F6F6F;
-  
-  cite {
-    color: $primary-color;
   }
 }

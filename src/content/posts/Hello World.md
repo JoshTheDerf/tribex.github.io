@@ -4,9 +4,6 @@ author: Joshua Bemenderfer
 date: 2015-5-28
 tags:
     - iceblerg
-    - Testing
-    - Markdown
-    - Development
 ---
 Hello! Welcome to the initial field test of [iceblerg](https://github.com/Tribex/iceblerg), a no-frills static blog generator with an emphasis on easy integration.
 

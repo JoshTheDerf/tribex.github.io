@@ -14,18 +14,6 @@
     width: 100%;
     margin-top: 0px;
     
-    .detail {
-      opacity: 0.0;
-      transition: opacity $transition-duration;
-    }
-    
-    &:hover {
-      .detail {
-        opacity: 0.5;
-      }
-    }
-
-    
     // Header aligned left
     &.left::before {
       content: "";
@@ -64,8 +52,11 @@
   }
   
   .infobar {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: -20px;
     .label {
       margin: 0px 2.5px;
-    }
+    }    
   }
 }
