@@ -157,7 +157,7 @@ index.jade - compiles to out/index.html:
 doctype html
   head
     meta(charset="utf-8" lang="en")
-    title Jade+Ractive.js Imports Demo'
+    title Jade+Ractive.js Imports Demo
     //- Pull in dependencies. (Ractive.js requires jQuery)
     script(src="./lib/jquery.js")
     script(src="./lib/ractive.js")
@@ -220,7 +220,7 @@ After compiling, the resulting `out/index.html` file should look like this:
   </body>
 </html>
 ```
-If you open a page in the browser, it should render as expected.
+If you open the page in a browser, it should render as expected.
 
 ![Page Output](/out/assets/images/blog/jade+ractive.js/Import-Output-John.png)
 
@@ -229,7 +229,7 @@ Try changing the text in the `first_name` input element, then run `userDetails.g
 ![Page Output Changed](/out/assets/images/blog/jade+ractive.js/Import-Output-Steve.png)
 
 ### <a name="warnings"></a> Warnings
- * Jade relies on indentation, so blocks inside ractive mustaches cannot be indented in further than Jade expects. This so far is the only limitation I've come across.
+ * Jade relies on indentation, so blocks inside Ractive mustaches cannot be indented in farther than Jade expects. This so far is the only limitation I've come across.
  
     Invalid Jade:
     ```jade
